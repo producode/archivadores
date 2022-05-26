@@ -6,7 +6,21 @@ import java.util.List;
 import controladores.archivadores.herramientas.RequestOdeDB;
 
 public class OficinaDeDeudaDeBerlin {
-	private List<RequestOdeDB> requestsEnviadas = new ArrayList<RequestOdeDB>();
+	private List<RequestOdeDB> requestsEnviadas = null;
+	private static OficinaDeDeudaDeBerlin single_instance = null;
+	
+	private OficinaDeDeudaDeBerlin()
+    {
+		requestsEnviadas = new ArrayList<RequestOdeDB>();
+    }
+	
+	public static OficinaDeDeudaDeBerlin getInstance()
+    {
+        if (single_instance == null)
+            single_instance = new OficinaDeDeudaDeBerlin();
+  
+        return single_instance;
+    }
 	
 	public void registrarDeuda(RequestOdeDB request) {
 		this.requestsEnviadas.add(request);

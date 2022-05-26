@@ -2,6 +2,11 @@ package controladores.archivadores;
 
 
 public class Application {
+	
+	public static void main(String args[])  //static method  
+	{  
+	System.out.println("Static method");  
+	}  
     //1) crear dos empresas y dos bancos (uno aleman y otro argentino)
 	
 	//2) crear dos deudas entre estos bancos y las empresas
