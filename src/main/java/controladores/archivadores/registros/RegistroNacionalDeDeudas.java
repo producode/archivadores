@@ -7,6 +7,20 @@ import controladores.archivadores.herramientas.RequestRNdeD;
 
 public class RegistroNacionalDeDeudas {
 	private List<RequestRNdeD> requestsEnviadas = new ArrayList<RequestRNdeD>();
+	private static RegistroNacionalDeDeudas single_instance = null;
+	
+	private RegistroNacionalDeDeudas()
+    {
+		requestsEnviadas = new ArrayList<RequestRNdeD>();
+    }
+	
+	public static RegistroNacionalDeDeudas getInstance()
+    {
+        if (single_instance == null)
+            single_instance = new RegistroNacionalDeDeudas();
+  
+        return single_instance;
+    }
 	
 	public void registrarDeuda(RequestRNdeD request) {
 		this.requestsEnviadas.add(request);
